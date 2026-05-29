@@ -1,4 +1,4 @@
-# Ngày 1 — Nền Tảng LLM API
+# Ngày 1 — Nền Tảng LLM API 
 
 ## Mục Tiêu
 
@@ -125,3 +125,5 @@ Tất cả kiểm thử dùng `unittest.mock` — **không cần API key thật*
 - [ ] `pytest tests/ -v` — tất cả kiểm thử pass
 - [ ] `solution/exercises.md` — tất cả câu trả lời đã điền
 - [ ] `solution/solution.py` — triển khai cuối cùng của bạn
+
+end
