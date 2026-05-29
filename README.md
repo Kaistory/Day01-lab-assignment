@@ -12,12 +12,51 @@ Học cách gọi OpenAI API, hiểu các tham số sinh text quan trọng, so s
 - Python 3.10+
 - OpenAI API key (chỉ để chạy thủ công — kiểm thử dùng mock)
 
-```bash
-# Cài đặt thư viện
-pip install -r ../../requirements.txt
+### 1. Tạo & kích hoạt virtual environment (venv)
 
-# Thiết lập biến môi trường
-export OPENAI_API_KEY="sk-..."
+**Windows (Command Prompt / cmd):**
+```bat
+python -m venv .venv
+.venv\Scripts\activate.bat
+```
+
+**Windows (PowerShell):**
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+> Nếu PowerShell báo lỗi chính sách thực thi, chạy một lần:
+> `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
+
+**macOS / Linux:**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Khi kích hoạt thành công, dấu nhắc terminal sẽ có tiền tố `(.venv)`.
+
+### 2. Cài đặt thư viện
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Thiết lập API key bằng file `.env`
+Tạo file `.env` ở thư mục gốc của project (đã được `.gitignore` bỏ qua — **không bao giờ commit**):
+```
+OPENAI_API_KEY=sk-...
+```
+Có thể copy từ mẫu: `cp .env.example .env` rồi điền key. `template.py` tự nạp `.env` khi chạy.
+
+### 4. Chạy
+```bash
+pytest tests/ -v     # chạy kiểm thử (dùng mock, không cần key)
+python template.py   # chạy thật (cần key trong .env)
+```
+
+### Thoát venv
+```bash
+deactivate
 ```
 
 ---
